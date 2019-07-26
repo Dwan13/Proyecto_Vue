@@ -5,18 +5,29 @@
   <title> Animales en peligro de extinción</title>
 </head>
 <body>
-  <div id="app">
+  <div id="app" class="Container mt-5">
+    <h1 class="p-5 bg-warning text-white text-center" >{{ titulo }}</h1>
 
-          <h1>{{ titulo }}</h1>
-          <input type="text" v-model= "nuevoanimal">
-          <button type="button" @click="agregaranimal">Agregar</button>
-          <h2>{{ description }}</h2>
-          <ul>
-            <li v-for="animal of animales">
-              {{animal.nombre}}-{{animal.Region}}
-            </li>
-          </ul>
+    <h2 class="text-center">{{ description }}</h2>
+
+
+    <ul>
+      <li class="p-5 bg-dark text-white" v-for="animal of animales">
+      <p>{{animal.nombre}}</p>
+      <p>{{animal.Region}}</p>
+      <p>{{animal.causa}}</p>
+        <div class="col-md-4 animal-image" >
+          <img :src="animal.image"></img>
+        </div>
+    </ul>
   </div>
+  <div class="bg-exito">
+    <input type="text" v-model= "nuevoanimal">
+    <input type="text" v-model= "nuevaregion">
+    <input type="text" v-model= "nuevacausa">
+    <button type="button" @click="agregaranimal">Agregar</button>
+  </div>
+  <Link REL=StyleSheet HREF="estilo.css" TYPE="text/css" MEDIA=screen>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
